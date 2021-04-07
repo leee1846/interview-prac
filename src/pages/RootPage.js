@@ -13,11 +13,11 @@ const RootPage = () => {
       <Header />
       <Switch>
         <Redirect exact path="/" to="/main" />
-        <Route path="/main" component={MainPage} />
-        <Route path="/second" component={SecondPage} />
-        <Route path="/third" component={ThirdPage} />
-        <Route path="/sign-up" component={SignUp} />
-        <Route path="/login" component={Login} />
+        <Route exact path="/main" component={MainPage} />
+        <Route exact path="/second" component={SecondPage} />
+        <Route exact path="/third" component={ThirdPage} />
+        <Route exact path="/sign-up" component={SignUp} />
+        <Route exact path="/login" component={Login} />
       </Switch>
     </>
   );

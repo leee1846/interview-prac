@@ -31,8 +31,11 @@ const SignUp = () => {
 
   const submitForm = (data) => {
     mutate(data);
-    history.push('/login');
   };
+
+  useEffect(() => {
+    if (userData) history.push('login');
+  }, [userData]);
 
   return (
     <Styled.Container>
@@ -44,10 +47,10 @@ const SignUp = () => {
         <input type="text" name="name" {...register('name')} />
         <p>{errors.name && '이름 형식이 맞지 않습니다'}</p>
         <Styled.Label for="pw">비밀번호</Styled.Label>
-        <input type="text" name="pw" {...register('pw')} />
+        <input type="password" name="pw" {...register('pw')} />
         <p>{errors.pw && '비밀번호 형식이 맞지 않습니다'}</p>
         <Styled.Label for="checkPw">비밀번호 확인</Styled.Label>
-        <input type="text" name="checkPw" {...register('checkPw')} />
+        <input type="password" name="checkPw" {...register('checkPw')} />
         <p>{errors.checkPw && '비밀번호가 맞지 않습니다'}</p>
         <button type="submit">회원가입</button>
       </Styled.Form>
