@@ -4,9 +4,12 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useHistory } from 'react-router-dom';
+import useSignUp from '../../hooks/useSignUp';
+import { useEffect } from 'react';
 
 const SignUp = () => {
   const history = useHistory();
+  const { data: userData, mutate } = useSignUp('signUp', () => window.signUp);
 
   const schema = yup.object().shape({
     email: yup.string().email().required(),
@@ -27,8 +30,7 @@ const SignUp = () => {
   });
 
   const submitForm = (data) => {
-    console.log(data);
-    console.log(errors);
+    mutate(data);
     history.push('/login');
   };
 
