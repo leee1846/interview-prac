@@ -4,7 +4,7 @@ const useSignUp = () => {
   const { data, mutate } = useSWR('signUp', () => window.signUp);
 
   return {
-    data: data || false,
+    data: data,
     mutate: (userList) => {
       window.signUp = userList;
       mutate();
