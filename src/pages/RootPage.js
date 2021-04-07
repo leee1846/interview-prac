@@ -4,6 +4,8 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import ThirdPage from './ThirdPage';
 import SecondPage from './SecondPage';
 import Header from './../components/Header/Header';
+import SignUp from './../components/SignUp/SignUp';
+import Login from './../components/Login/Login';
 
 const RootPage = () => {
   return (
@@ -14,6 +16,8 @@ const RootPage = () => {
         <Route path="/main" component={MainPage} />
         <Route path="/second" component={SecondPage} />
         <Route path="/third" component={ThirdPage} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path="/login" component={Login} />
       </Switch>
     </>
   );
