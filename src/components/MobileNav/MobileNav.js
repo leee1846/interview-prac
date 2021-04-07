@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import * as Styled from './MobileNav.style';
 
-const MobileNav = ({ to, children, isclicked, onClick, index }) => {
+const MobileNav = ({ to, children, isclicked, onClick, index, setNavOn }) => {
   const linkHandeler = (e, index) => {
     onClick(index);
+    setNavOn(false);
   };
 
   return (

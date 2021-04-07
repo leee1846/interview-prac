@@ -51,6 +51,7 @@ const Header = () => {
                   to={mn.to}
                   index={index}
                   isclicked={index === menuClicked ? 'true' : ''}
+                  setNavOn={setNavOn}
                 >
                   {mn.title}
                 </MobileNav>
