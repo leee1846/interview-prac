@@ -5,7 +5,7 @@ const Navigation = ({ to, children, isclicked, onClick, index }) => {
   return (
     <>
       <Styled.LinkRouter
-        onClick={(e) => onClick(e, index)}
+        onClick={(e) => onClick(index)}
         to={to}
         isclicked={isclicked}
       >
