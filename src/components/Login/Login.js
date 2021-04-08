@@ -8,11 +8,7 @@ const Login = () => {
   const history = useHistory();
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setpasswordValue] = useState('');
-  const [dataMatch, setDataMatch] = useState('');
-  const { data: userData, mutate: userMutate } = useSignUp(
-    'signUp',
-    () => window.signUp,
-  );
+  const { data: userData } = useSignUp('signUp', () => window.signUp);
   const { data: user, mutate } = useLogin('login', () => window.login);
 
   const onEmailChange = (e) => {

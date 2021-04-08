@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as Styled from './MbNavMenu.style';
 
 const MbNavMenu = ({ to, children, isclicked, onClick, index, setNavOn }) => {

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import useLogin from './../hooks/useLogin';
 
 const MainPage = () => {
-  const { data: user, mutate } = useLogin('login', () => window.login);
+  const { data: user } = useLogin('login', () => window.login);
 
   if (!user) {
     return <Redirect to="/login" />;

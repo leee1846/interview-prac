@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 const MbNavigation = ({ menu, onClick, menuClicked, onLogout }) => {
   const history = useHistory();
-  const { data: user, mutate } = useLogin('login', () => window.login);
+  const { data: user } = useLogin('login', () => window.login);
   const [navOn, setNavOn] = useState(false);
 
   const MbNavHandeler = () => {
@@ -25,7 +25,7 @@ const MbNavigation = ({ menu, onClick, menuClicked, onLogout }) => {
 
   return (
     <Styled.MbContainer>
-      <i class="fas fa-bars" onClick={MbNavHandeler}></i>
+      <i className="fas fa-bars" onClick={MbNavHandeler}></i>
       <Styled.MbNavigation navOn={navOn}>
         {user && <p>{user}</p>}
         {menu.map((mn, index) => {

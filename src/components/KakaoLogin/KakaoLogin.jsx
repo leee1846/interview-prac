@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 const KakaoLogin = () => {
   const history = useHistory();
-  const { data, mutate } = useLogin('login', () => window.login);
+  const { mutate } = useLogin('login', () => window.login);
 
   const onKakaoClick = () => {
     window.Kakao.Auth.login({

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as Styled from './DsNavigation.style';
 import DsNavMenu from '../DsNavMenu/DsNavMenu';
 import useLogin from './../../hooks/useLogin';
@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 const DsNavigation = ({ menu, onClick, menuClicked, onLogout }) => {
   const history = useHistory();
-  const { data: user, mutate } = useLogin('login', () => window.login);
+  const { data: user } = useLogin('login', () => window.login);
 
   return (
     <Styled.DesktopContainer>

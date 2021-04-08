@@ -12,7 +12,7 @@ const menu = [
 
 const Header = () => {
   const [menuClicked, setMenuClicked] = useState(0);
-  const { data: user, mutate } = useLogin('login', () => window.login);
+  const { mutate } = useLogin('login', () => window.login);
 
   const onClick = (index) => {
     setMenuClicked(index);
