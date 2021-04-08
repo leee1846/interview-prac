@@ -46,14 +46,14 @@ const Login = () => {
   return (
     <Styled.Container>
       <Styled.Form onSubmit={onLogin}>
-        <Styled.Label for="loginEmail">이메일</Styled.Label>
+        <Styled.Label htmlFor="loginEmail">이메일</Styled.Label>
         <input
           type="email"
           name="loginEmail"
           onChange={onEmailChange}
           value={emailValue}
         />
-        <Styled.Label for="loginPw">비밀번호</Styled.Label>
+        <Styled.Label htmlFor="loginPw">비밀번호</Styled.Label>
         <input
           type="password"
           name="loginPw"

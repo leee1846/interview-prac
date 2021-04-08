@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 
 const SignUp = () => {
   const history = useHistory();
+  const [emailValue, setEmailValue] = useState('');
+  const [isEmailOk, setIsEmailOk] = useState('');
   const { data: userData, mutate } = useSignUp('signUp', () => window.signUp);
 
   const schema = yup.object().shape({
@@ -33,6 +35,15 @@ const SignUp = () => {
     mutate(data);
   };
 
+  const emailValidation = () => {
+    const emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+    if (emailRegex.test(emailValue)) {
+      setIsEmailOk(true);
+    } else {
+      setIsEmailOk(false);
+    }
+  };
+
   useEffect(() => {
     if (userData) history.push('login');
   }, [userData]);
@@ -53,6 +64,13 @@ const SignUp = () => {
         <input type="password" {...register('checkPw')} />
         <p>{errors.checkPw && '비밀번호가 맞지 않습니다'}</p>
         <button type="submit">회원가입</button>
+        <Styled.EmailTest
+          type="text"
+          placeholder="이메일 validation test input입니다"
+          onChange={(e) => setEmailValue(e.target.value)}
+          onBlur={emailValidation}
+          isEmailOk={isEmailOk}
+        />
       </Styled.Form>
     </Styled.Container>
   );

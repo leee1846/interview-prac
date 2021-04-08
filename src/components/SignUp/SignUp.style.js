@@ -17,3 +17,7 @@ export const Form = Styled.form`
 export const Label = Styled.label`
   margin-top:10px;
 `;
+
+export const EmailTest = Styled.input`
+  border:1px solid ${({ isEmailOk }) => isEmailOk === false && 'red'};
+`;
