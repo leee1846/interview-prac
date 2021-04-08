@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import * as Styled from './MobileNav.style';
+import * as Styled from './MbNavMenu.style';
 
-const MobileNav = ({ to, children, isclicked, onClick, index, setNavOn }) => {
+const MbNavMenu = ({ to, children, isclicked, onClick, index, setNavOn }) => {
   const linkHandeler = (e, index) => {
     onClick(index);
     setNavOn(false);
@@ -20,4 +20,4 @@ const MobileNav = ({ to, children, isclicked, onClick, index, setNavOn }) => {
   );
 };
 
-export default MobileNav;
+export default MbNavMenu;

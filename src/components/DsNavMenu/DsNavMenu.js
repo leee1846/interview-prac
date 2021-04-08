@@ -1,7 +1,7 @@
 import React from 'react';
-import * as Styled from './Navigation.style';
+import * as Styled from './DsNavMenu.style';
 
-const Navigation = ({ to, children, isclicked, onClick, index }) => {
+const DsNavMenu = ({ to, children, isclicked, onClick, index }) => {
   return (
     <>
       <Styled.LinkRouter
@@ -15,4 +15,4 @@ const Navigation = ({ to, children, isclicked, onClick, index }) => {
   );
 };
 
-export default Navigation;
+export default DsNavMenu;
