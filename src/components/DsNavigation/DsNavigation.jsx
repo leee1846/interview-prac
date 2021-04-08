@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import * as Styled from './DsNavigation.style';
 import DsNavMenu from '../DsNavMenu/DsNavMenu';
 import useLogin from './../../hooks/useLogin';
+import { useHistory } from 'react-router-dom';
 
 const DsNavigation = ({ menu, onClick, menuClicked, onLogout }) => {
+  const history = useHistory();
   const { data: user, mutate } = useLogin('login', () => window.login);
 
   return (
@@ -25,6 +27,9 @@ const DsNavigation = ({ menu, onClick, menuClicked, onLogout }) => {
         <>
           <div>{user}</div>
           <button onClick={onLogout}>로그아웃</button>
+          <button onClick={() => history.push('/mypage/order')}>
+            마이페이지
+          </button>
         </>
       )}
     </Styled.DesktopContainer>
