@@ -36,7 +36,12 @@ const Header = () => {
         />
 
         {/* 모바일 */}
-        <MbNavigation menu={menu} onClick={onClick} menuClicked={menuClicked} />
+        <MbNavigation
+          menu={menu}
+          onClick={onClick}
+          menuClicked={menuClicked}
+          onLogout={onLogout}
+        />
       </nav>
     </Styled.Header>
   );
