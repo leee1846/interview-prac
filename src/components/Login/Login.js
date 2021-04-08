@@ -2,19 +2,18 @@ import React, { useState, useEffect } from 'react';
 import useSignUp from './../../hooks/useSignUp';
 import useLogin from './../../hooks/useLogin';
 import { useHistory } from 'react-router-dom';
+import * as Styled from './Login.style';
 
 const Login = () => {
   const history = useHistory();
   const [emailValue, setEmailValue] = useState('');
   const [passwordValue, setpasswordValue] = useState('');
+  const [dataMatch, setDataMatch] = useState('');
   const { data: userData, mutate: userMutate } = useSignUp(
     'signUp',
     () => window.signUp,
   );
-  const { data: isLogin, mutate: loginMutate } = useLogin(
-    'login',
-    () => window.login,
-  );
+  const { data: user } = useLogin('login', () => window.login);
 
   const onEmailChange = (e) => {
     setEmailValue(e.target.value);
@@ -25,35 +24,38 @@ const Login = () => {
 
   const onLogin = (e) => {
     e.preventDefault();
-    if (userData.email === emailValue && userData.pw === passwordValue) {
-      loginMutate(userData.name);
+    if (userData?.email === emailValue && userData?.pw === passwordValue) {
+      sessionStorage.setItem('user', userData.name);
     }
   };
 
   useEffect(() => {
-    if (isLogin && isLogin === userData.name) {
+    if (user && user === userData?.name) {
       history.push('/main');
     }
-  }, [isLogin]);
+  }, [user]);
 
   return (
-    <form onSubmit={onLogin}>
-      <label for="loginEmail">이메일</label>
-      <input
-        type="email"
-        name="loginEmail"
-        onChange={onEmailChange}
-        value={emailValue}
-      />
-      <label for="loginPw">비밀번호</label>
-      <input
-        type="password"
-        name="loginPw"
-        onChange={onPasswordChange}
-        value={passwordValue}
-      />
-      <button type="submit">로그인</button>
-    </form>
+    <Styled.Container>
+      <Styled.Form onSubmit={onLogin}>
+        <Styled.Label for="loginEmail">이메일</Styled.Label>
+        <input
+          type="email"
+          name="loginEmail"
+          onChange={onEmailChange}
+          value={emailValue}
+        />
+        <Styled.Label for="loginPw">비밀번호</Styled.Label>
+        <input
+          type="password"
+          name="loginPw"
+          onChange={onPasswordChange}
+          value={passwordValue}
+        />
+        <p>{!user && '정보가 존재하지 않습니다'}</p>
+        <button type="submit">로그인</button>
+      </Styled.Form>
+    </Styled.Container>
   );
 };
 

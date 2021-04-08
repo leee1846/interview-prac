@@ -4,11 +4,7 @@ const useLogin = () => {
   const { data, mutate } = useSWR('login', () => window.login);
 
   return {
-    data: data,
-    mutate: (login) => {
-      window.login = login;
-      mutate();
-    },
+    data: data || sessionStorage.getItem('user'),
   };
 };
 
