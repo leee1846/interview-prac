@@ -40,17 +40,17 @@ const SignUp = () => {
   return (
     <Styled.Container>
       <Styled.Form onSubmit={handleSubmit(submitForm)}>
-        <Styled.Label for="email">이메일</Styled.Label>
-        <input type="email" name="email" {...register('email')} />
+        <Styled.Label htmlFor="email">이메일</Styled.Label>
+        <input type="email" {...register('email')} />
         <p>{errors.email && '이메일형식이 맞지 않습니다'}</p>
-        <Styled.Label for="name">이름</Styled.Label>
-        <input type="text" name="name" {...register('name')} />
+        <Styled.Label htmlFor="name">이름</Styled.Label>
+        <input type="text" {...register('name')} />
         <p>{errors.name && '이름 형식이 맞지 않습니다'}</p>
-        <Styled.Label for="pw">비밀번호</Styled.Label>
-        <input type="password" name="pw" {...register('pw')} />
+        <Styled.Label htmlFor="pw">비밀번호</Styled.Label>
+        <input type="password" {...register('pw')} />
         <p>{errors.pw && '비밀번호 형식이 맞지 않습니다'}</p>
-        <Styled.Label for="checkPw">비밀번호 확인</Styled.Label>
-        <input type="password" name="checkPw" {...register('checkPw')} />
+        <Styled.Label htmlFor="checkPw">비밀번호 확인</Styled.Label>
+        <input type="password" {...register('checkPw')} />
         <p>{errors.checkPw && '비밀번호가 맞지 않습니다'}</p>
         <button type="submit">회원가입</button>
       </Styled.Form>
