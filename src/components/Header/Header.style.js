@@ -17,6 +17,13 @@ export const Logo = Styled.div`
   height:30px;
 `;
 
+export const DesktopContainer = Styled.div`
+display:flex;
+  @media ${({ theme }) => theme.mobileSize} {
+    display:none
+  }
+`;
+
 export const MbContainer = Styled.div`
   display:none;
 

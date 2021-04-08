@@ -13,7 +13,7 @@ const Login = () => {
     'signUp',
     () => window.signUp,
   );
-  const { data: user } = useLogin('login', () => window.login);
+  const { data: user, mutate } = useLogin('login', () => window.login);
 
   const onEmailChange = (e) => {
     setEmailValue(e.target.value);
@@ -26,6 +26,7 @@ const Login = () => {
     e.preventDefault();
     if (userData?.email === emailValue && userData?.pw === passwordValue) {
       sessionStorage.setItem('user', userData.name);
+      mutate(sessionStorage.getItem('user'));
     }
   };
 
