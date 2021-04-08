@@ -6,7 +6,7 @@ const MainPage = () => {
   const { data: user, mutate } = useLogin('login', () => window.login);
 
   if (!user) {
-    return <Redirect to="/sign-up" />;
+    return <Redirect to="/login" />;
   }
   return (
     <div>

@@ -54,6 +54,7 @@ const Login = () => {
         />
         <p>{!user && '정보가 존재하지 않습니다'}</p>
         <button type="submit">로그인</button>
+        <button onClick={() => history.push('/sign-up')}>회원가입</button>
       </Styled.Form>
     </Styled.Container>
   );
